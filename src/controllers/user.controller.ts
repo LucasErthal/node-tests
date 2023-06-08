@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
+import { Request, Response } from "express";
 import { userValidation } from "../validations/user.validation";
 import * as userRepo from "../repositories/user.repository";
 
-export const create = async (req, res) => {
+export const create = async (req: Request, res: Response) => {
   try {
     await userValidation.validate(req.body);
 
@@ -19,7 +20,7 @@ export const create = async (req, res) => {
   }
 };
 
-export const getAll = async (req, res) => {
+export const getAll = async (req: Request, res: Response) => {
   try {
     const users = await userRepo.getAllUsers();
 
@@ -29,7 +30,7 @@ export const getAll = async (req, res) => {
   }
 };
 
-export const getById = async (req, res) => {
+export const getById = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
   try {
@@ -41,7 +42,7 @@ export const getById = async (req, res) => {
   }
 };
 
-export const update = async (req, res) => {
+export const update = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
   try {
@@ -54,7 +55,7 @@ export const update = async (req, res) => {
   }
 };
 
-export const remove = async (req, res) => {
+export const remove = async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
 
