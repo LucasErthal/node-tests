@@ -53,3 +53,15 @@ export const update = async (req, res) => {
     res.status(400).send(error);
   }
 };
+
+export const remove = async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    await userRepo.deleteUser(id);
+
+    res.status(200).send();
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
