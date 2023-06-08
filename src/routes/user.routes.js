@@ -5,6 +5,7 @@ const userRoutes = (app) => {
   app.get("/users", userController.getAll);
   app.get("/user/:id", userController.getById);
   app.put("/user/:id", userController.update);
+  app.delete("/user/:id", userController.remove);
 };
 
 export default userRoutes;
